@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer components {
+    .sm-screen {
+        font-size: 0.8rem;
+    }
+
+    .md-screen {
+        font-size: 0.9rem;
+    }
+
+    .lg-screen {
+        font-size: 1rem;
+    }
+   
+}

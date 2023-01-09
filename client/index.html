@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Aldrin Caballero" />
+    <meta name="email" content="caballeroaldrin02@gmail.com" />
+    <meta name="github" content="https://github.com/aldrin112602" />
+    <link rel="icon" type="image/svg+xml" href="./src/tailwind-css-mark.svg" />
+    <title>
+      Webflow: Create a custom website | No-code website builder | clone
+    </title>
+    <style>
+      /* custom font family for logo */
+      @import url("https://fonts.googleapis.com/css2?family=Averia+Gruesa+Libre&display=swap");
+    </style>
+    <link rel="stylesheet" href="./dist/App.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0"
+    />
+
+    <!-- jquery plugin -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+  </head>
+  <body
+    class="bg-gradient-to-r min-w-full min-h-screen from-sky-500 to-indigo-500"
+  >
+    <!-- nav bar -->
+    <nav
+      class="p-4 bg-slate-100 flex items-center h-20 shadow-lg justify-between sm:p-6 fixed w-full left-0 top-0  md:px-20"
+    >
+      <div class="lg:hidden md:hidden inline">
+        <span class="material-symbols-outlined cursor-pointer text-lg">
+          menu
+        </span>
+      </div>
+
+      <div class="lg:hidden md:hidden inline">
+        <!-- logo -->
+        <a
+          href="#"
+          class="font-semibold hover:text-blue-600 p-3 border-transparent font-averia-gruesa-libre text-xl font-italic"
+          >webflow</a
+        >
+      </div>
+
+      <ul class="hidden items-center justify-around list-none lg:flex md:flex">
+        <li
+          class="flex items-center justify-around border-transparent border-b-4"
+        >
+          <!-- logo -->
+          <a
+            href="#"
+            class="font-semibold hover:text-blue-600 p-3 border-transparent font-averia-gruesa-libre text-xl font-italic"
+            >webflow</a
+          >
+        </li>
+        <li
+          class="flex items-center justify-around hover:text-blue-600 hover:border-blue-600 border-transparent border-b-4 transition duration-500 ease-in-out"
+          id="li_prod"
+          onclick="$('#products').toggle(100, function() {
+            $('#expand_1').html(($('#expand_1').text().trim() === 'expand_more' ? 'keyboard_arrow_up' : 'expand_more'));
+            $('#li_prod').toggleClass('text-blue-600 border-blue-600');
+
+            // solutions reset
+            $('#expand_2').html('expand_more');
+            $('#solutions').hide();
+            $('#li_sol').removeClass('text-blue-600 border-blue-600');
+
+            // resources reset
+            $('#expand_3').html('expand_more');
+            $('#resources').hide();
+            $('#li_res').removeClass('text-blue-600 border-blue-600');
+          })"
+        >
+          <a
+            href="#"
+            class="font-semibold p-3 lg:lg-screen md:md-screen sm:sm-screen"
+            title="Products"
+            >Products
+          </a>
+          <span
+            class="material-symbols-outlined hover:text-blue-600 lg:lg-screen md:md-screen sm:sm-screen"
+            id="expand_1"
+          >
+            expand_more
+          </span>
+        </li>
+        <li
+          class="mx-3 flex items-center justify-around hover:text-blue-600 hover:border-blue-600 border-transparent border-b-4 transition duration-500 ease-in-out"
+          id="li_sol"
+          onclick="$('#solutions').toggle(100, function() {
+            $('#expand_2').html(($('#expand_2').text().trim() === 'expand_more' ? 'keyboard_arrow_up' : 'expand_more'));
+            $('#li_sol').toggleClass('text-blue-600 border-blue-600');
+
+            // products reset
+            $('#expand_1').html('expand_more');
+            $('#products').hide();
+            $('#li_prod').removeClass('text-blue-600 border-blue-600');
+
+            // resources reset
+            $('#expand_3').html('expand_more');
+            $('#resources').hide();
+            $('#li_res').removeClass('text-blue-600 border-blue-600');
+          })"
+        >
+          <a
+            href="#"
+            class="font-semibold p-3 sm:sm-screen lg:lg-screen md:md-screen"
+            title="Solutions"
+            >Solutions</a
+          >
+          <span
+            class="material-symbols-outlined hover:text-blue-600 sm:sm-screen lg:lg-screen md:md-screen"
+            id="expand_2"
+          >
+            expand_more
+          </span>
+        </li>
+        <li
+          class="flex mx-3 items-center justify-around hover:text-blue-600 hover:border-blue-600 border-transparent border-b-4 transition duration-500 ease-in-out"
+          id="li_res"
+          onclick="$('#resources').toggle(100, function() {
+            $('#expand_3').html(($('#expand_3').text().trim() === 'expand_more' ? 'keyboard_arrow_up' : 'expand_more'));
+            $('#li_res').toggleClass('text-blue-600 border-blue-600');
+
+            // products reset
+            $('#expand_1').html('expand_more');
+            $('#products').hide();
+            $('#li_prod').removeClass('text-blue-600 border-blue-600');
+
+            // solutions reset
+            $('#expand_2').html('expand_more');
+            $('#solutions').hide();
+            $('#li_sol').removeClass('text-blue-600 border-blue-600');
+          })"
+        >
+          <a
+            href="#"
+            class="font-semibold p-3 sm:sm-screen lg:lg-screen md:md-screen"
+            title="Resources"
+            >Resources</a
+          >
+          <span
+            class="material-symbols-outlined hover:text-blue-600 sm:sm-screen lg:lg-screen md:md-screen"
+            id="expand_3"
+          >
+            expand_more
+          </span>
+        </li>
+        <li
+          class="flex mx-3 items-center justify-around hover:text-blue-600 hover:border-blue-600 border-transparent border-b-4 transition duration-500 ease-in-out"
+        >
+          <a
+            href="#"
+            class="font-semibold p-3 sm:sm-screen lg:lg-screen md:md-screen"
+            title="Enterprice"
+            >Enterprice</a
+          >
+        </li>
+        <li
+          class="flex mx-3 items-center justify-around hover:text-blue-600 hover:border-blue-600 border-transparent border-b-4 transition duration-500 ease-in-out"
+        >
+          <a
+            href="#"
+            class="font-semibold p-3 sm:sm-screen lg:lg-screen md:md-screen"
+            title="Pricing"
+            >Pricing</a
+          >
+        </li>
+      </ul>
+
+      <ul class="hidden items-center justify-around list-none lg:flex md:flex">
+        <li class="mx-3">
+          <a
+            href="#"
+            class="hover:text-blue-600 hover:bg-blue-100 p-3 font-semibold transition duration-500 ease-in-out sm:sm-screen lg:lg-screen md:md-screen"
+            >Log in</a
+          >
+        </li>
+        <li class="mx-3">
+          <a
+            href="#"
+            class="bg-blue-100 rounded-sm text-blue-600 p-3 hover:bg-blue-200 px-7 font-semibold transition duration-500 ease-in-out sm:sm-screen lg:lg-screen md:md-screen"
+            >Contact sales</a
+          >
+        </li>
+        <li class="mx-3">
+          <a
+            href="#"
+            class="bg-blue-600 hover:bg-blue-800 rounded-sm text-neutral-50 py-3 px-7 font-semibold transition duration-500 ease-in-out sm:sm-screen lg:lg-screen md:md-screen"
+            >Get started - it's free</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- products nav section -->
+    <div
+      style="display: none"
+      class="products md:flex bg-white pt-4 p-6 fixed w-full left-0 top-20 max-h-screen overflow-auto md:px-20"
+      id="products"
+    >
+      <div class="md:w-3/4 p-5">
+        <h2 class="pl-5 font-semibold">BUILD A WEBSITE</h2>
+        <!-- first row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#"
+              ><h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined">
+                  arrow_selector_tool
+                </span>
+                Designer
+              </h3>
+            </a>
+            <p class="pl-7">Creative control and flexibility without code</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> database </span> CMS
+              </h3>
+            </a>
+            <p class="pl-7">Flexible content management</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> shopping_cart </span>
+                Ecommerce
+              </h3>
+            </a>
+            <p class="pl-7">Manage stunning online stores</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> bolt </span>
+                Interactions
+              </h3>
+            </a>
+            <p class="pl-7">Craft immersive experiences</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> person_filled </span>
+                Memberships BETA
+              </h3>
+            </a>
+            <p class="pl-7">Curate gated content</p>
+          </div>
+        </div>
+        <br /><br />
+        <h2 class="pl-5 font-semibold">OPTIMIZE FOR GROWTH</h2>
+        <!-- Second row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> edit_square </span>
+                Editor
+              </h3>
+            </a>
+            <p class="pl-7">Smooth cross-functional collaboration</p>
+          </div>
+
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> lan </span>
+                Logic BETA
+              </h3>
+            </a>
+            <p class="pl-7">Customize logio-based workflows</p>
+          </div>
+
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined">
+                  temp_preferences_custom
+                </span>
+                SEO
+              </h3>
+            </a>
+            <p class="pl-7">Fine tuned control, without engineers</p>
+          </div>
+        </div>
+
+        <br /><br />
+        <!-- third row -->
+        <h2 class="pl-5 font-semibold">SCALE YOUR BUSINESS</h2>
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <a href="#">
+                <h3
+                  class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+                >
+                  <span class="material-symbols-outlined"> shield </span>
+                  Securities
+                </h3>
+              </a>
+            </a>
+            <p class="pl-7">
+              State of the art web application security practices
+            </p>
+          </div>
+
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> cloud_queue </span>
+                Hosting
+              </h3>
+            </a>
+            <p class="pl-7">Fast and reliable hosting provided by AWS</p>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/3 p-8 border-blue-50 border-l-2">
+        <img
+          src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/63765f5c76c3464f69934bda_ad.webp"
+          alt=""
+        />
+        <ul class="leading-10">
+          <h2 class="pt-10">READY TO GET STARTED?</h2>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Find a Template</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Get inspired</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Customer stories</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Contact Support</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Accessibility at Webflow</a>
+          </li>
+        </ul>
+        <br><br>
+      </div>
+    </div>
+
+    <!-- Solutions nav section -->
+    <div
+      style="display: none"
+      class="products md:flex bg-white pt-4 p-6 fixed w-full left-0 top-20 max-h-screen overflow-auto shadow-xl  md:px-20"
+      id="solutions"
+    >
+      <div class="md:w-3/4 p-5">
+        <h2 class="pl-5 font-semibold">WEBFLOW FOR</h2>
+        <!-- first row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/2 p-3 py-4">
+            <a href="#"
+              ><h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> manage_accounts </span>
+                Freelacers and agencies
+              </h3>
+            </a>
+            <p class="pl-7">
+              Discover how freelancers and agencies use Webflow
+            </p>
+          </div>
+          <div class="md:w-1/2 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> spa </span>Startups
+              </h3>
+            </a>
+            <p class="pl-7">Learn how to move faster with Webflow</p>
+          </div>
+        </div>
+
+        <!-- second row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/2 p-3 py-4">
+            <a href="#"
+              ><h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> school </span>
+                Classrooms
+              </h3>
+            </a>
+            <p class="pl-7">Students and educators can use Webflow for free</p>
+          </div>
+          <div class="md:w-1/2 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> apartment </span>
+                Enterrpise
+              </h3>
+            </a>
+            <p class="pl-7">
+              Learn how world-class organizations build faster with Webflow
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/3 p-8 border-blue-50 border-l-2">
+        <h2 class="font-semibold">CUSTOMER STORIES</h2>
+        <!-- first row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/2 p-2">
+            <a href="#"
+              ><h3
+                class="font-semibold hover:border-blue-600 py-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                Rakuten
+              </h3>
+            </a>
+            <p>
+              Rakuten uses Webflow to help clients push their business to new
+              levels
+            </p>
+          </div>
+          <div class="md:w-1/2 p-2">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 py-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                Startups
+              </h3>
+            </a>
+            <p>Learn how to move faster with Webflow</p>
+          </div>
+          <div class="w-full flex items-center justify-between p-2">
+            <a href="#"
+              ><h3
+                class="font-semibold hover:border-blue-600 hover:text-blue-600 py-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                View all customer stories
+              </h3>
+            </a>
+            <a href="#" class="hover:text-blue-600">
+              <span class="material-symbols-outlined"> north_east </span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <br><br>
+    </div>
+
+    <!-- Resources nav section -->
+    <div
+    style="display: none;"
+      class="md:flex bg-white pt-4 p-6 fixed w-full left-0 top-20 max-h-screen overflow-auto  md:px-20"
+      id="resources"
+    >
+      <div class="md:w-3/4 p-5">
+        <h2 class="pl-5 font-semibold">GET STARTED</h2>
+        <!-- first row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#"
+              ><h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> storefront </span>
+                Marketplace
+              </h3>
+            </a>
+            <p class="pl-7">Browse community-created resources</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> view_comfy </span>
+                Templates
+              </h3>
+            </a>
+            <p class="pl-7">
+              Find website templates for business & personal use
+            </p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> build </span>
+                Made in Webflow
+              </h3>
+            </a>
+            <p class="pl-7">Find and clone inspiring sites #MadeInWebflow</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> design_services </span>
+                Libraries
+              </h3>
+            </a>
+            <p class="pl-7">Build faster with powerful layouts</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> business_center </span>
+                Hire an expert
+              </h3>
+            </a>
+            <p class="pl-7">Get professional help with your next project</p>
+          </div>
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> extension </span>
+                Webflow apps
+              </h3>
+            </a>
+            <p class="pl-7">Extend your site’s functionality with apps</p>
+          </div>
+        </div>
+        <br /><br />
+        <h2 class="pl-5 font-semibold">LEARN</h2>
+        <!-- Second row -->
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> sort </span>
+                Blog
+              </h3>
+            </a>
+            <p class="pl-7">The latest trends in web design and no-code</p>
+          </div>
+
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> library_books </span>
+                Ebooks & Whitepapers
+              </h3>
+            </a>
+            <p class="pl-7">
+              Free content on web design, freelancing, and more
+            </p>
+          </div>
+
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out"
+              >
+                <span class="material-symbols-outlined"> smart_display </span>
+                Webflow TV
+              </h3>
+            </a>
+            <p class="pl-7">
+              Stream highly curated and original Webflow content
+            </p>
+          </div>
+        </div>
+
+        <br /><br />
+        <!-- third row -->
+        <h2 class="pl-5 font-semibold">USER RESOURCES</h2>
+        <div class="border-blue-50 mt-5 border-t-2 md:flex flex-wrap">
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <a href="#">
+                <h3
+                  class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out flex items-center"
+                >
+                  <span class="material-symbols-outlined"> code </span>&nbsp;
+                  Developers
+                </h3>
+              </a>
+            </a>
+          </div>
+
+          <div class="md:w-1/3 p-3 py-4">
+            <a href="#">
+              <h3
+                class="font-semibold hover:border-blue-600 pb-2 border-blue-50 border-b-2 transition duration-500 ease-in-out flex items-center"
+              >
+                <span class="material-symbols-outlined"> groups </span>&nbsp;
+                Community
+              </h3>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="md:w-1/3 p-8 border-blue-50 border-l-2">
+        <h2 class="pt-10">WEBFLOW UNIVERSITY</h2>
+        <br />
+        <div class="md:flex items-center justify-center gap-4">
+          <img
+            class="w-full md:w-1/3"
+            src="https://assets-global.website-files.com/5d3e265ac89f6a3e64292efc/61f94c02c095ab707beb3c2c_university-figma-to-webflow-course.webp"
+            alt=""
+          />
+          <div class="w-full md:w-3/4">
+            <a href="#" class="hover:text-blue-600">
+              <h2 class="font-semibold">Figma to Webflow course</h2>
+              <p class="pt-2">
+                Learn our design process — all the way from concept to
+                completion.
+              </p>
+            </a>
+          </div>
+        </div>
+        <ul class="leading-10">
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">21-days portfolio course</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Building a business website</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Webflow Ecommerce</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out flex items-center justify-between"
+          >
+            <a href="#">Visit Webflow University</a>
+            <span class="material-symbols-outlined">
+              north_east
+              </span>
+          </li>
+          <h2 class="pt-10">GET HELP</h2>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Support</a>
+          </li>
+          <li
+            class="hover:text-blue-500 my-2 hover:border-blue-600 border-blue-50 border-b-2 transition duration-500 font-semibold ease-in-out"
+          >
+            <a href="#">Forum</a>
+          </li>
+          <br><br>
+        </ul>
+      </div>
+    </div>
+    <script src="./src/index.js"></script>
+  </body>
+</html>
